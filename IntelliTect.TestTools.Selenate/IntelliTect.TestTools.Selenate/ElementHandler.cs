@@ -74,21 +74,32 @@ namespace IntelliTect.TestTools.Selenate
         /// <returns>True if the element is visible, false if the the element is not visible or throws an ElementNotVisible or NoSuchElement exception</returns>
         public bool WaitForVisibleState(IWebElement element, int secondsToTry = 5)
         {
+            return WaitForVisibleState(element, true, secondsToTry);
+        }
+
+        /// <summary>
+        /// Waits for the element to be in the expected visibility state.
+        /// </summary>
+        /// <param name="element">The IWebElement implmentation to check for visibility state</param>
+        /// <param name="expectedVisibility">The state to wait for the element to be in</param>
+        /// <param name="secondsToTry">The number of seconds to wait for the element to be visible before failing</param>
+        /// <returns>True if the element is visible, false if the the element is not visible or throws an ElementNotVisible or NoSuchElement exception</returns>
+        public bool WaitForVisibleState(IWebElement element, bool expectedVisibility = true, int secondsToTry = 5)
+        {
             WebDriverWait wait = new WebDriverWait(_Driver, TimeSpan.FromSeconds(secondsToTry));
             wait.IgnoreExceptionTypes(
                 typeof(ElementNotVisibleException),
                 typeof(StaleElementReferenceException),
                 typeof(NoSuchElementException));
-
             try
             {
-                return wait.Until(d => element.Displayed);
+                return wait.Until(d => element.Displayed == expectedVisibility);
             }
             catch (WebDriverException ex)
                 when (ex.InnerException is ElementNotVisibleException
                         || ex.InnerException is NoSuchElementException)
             {
-                return false;
+                return !expectedVisibility;
             }
         }
 
@@ -100,6 +111,18 @@ namespace IntelliTect.TestTools.Selenate
         /// <returns>True if the element is visible, false if the the element is not visible or throws an ElementNotVisible or NoSuchElement exception</returns>
         public bool WaitForEnabledState(IWebElement element, int secondsToTry = 5)
         {
+            return WaitForEnabledState(element, true, secondsToTry);       
+        }
+
+        /// <summary>
+        /// Waits for the element to be in the expected enabled state.
+        /// </summary>
+        /// <param name="element">The IWebElement implmentation to check for enabled state</param>
+        /// <param name="expectedState">The state to wait for the element to be in</param>
+        /// <param name="secondsToTry">The number of seconds to wait for the element to be enabled before failing</param>
+        /// <returns>True if the element is visible, false if the the element is not visible or throws an ElementNotVisible or NoSuchElement exception</returns>
+        public bool WaitForEnabledState(IWebElement element, bool expectedState = true, int secondsToTry = 5)
+        {
             WebDriverWait wait = new WebDriverWait(_Driver, TimeSpan.FromSeconds(secondsToTry));
             wait.IgnoreExceptionTypes(
                 typeof(ElementNotInteractableException),
@@ -108,13 +131,13 @@ namespace IntelliTect.TestTools.Selenate
 
             try
             {
-                return wait.Until(d => element.Enabled);
+                return wait.Until(d => element.Enabled == expectedState);
             }
-            catch(WebDriverException ex)
+            catch (WebDriverException ex)
                 when (ex.InnerException is ElementNotInteractableException)
             {
-                return false;
-            }            
+                return !expectedState;
+            }
         }
 
         private IWebDriver _Driver { get; set; }
