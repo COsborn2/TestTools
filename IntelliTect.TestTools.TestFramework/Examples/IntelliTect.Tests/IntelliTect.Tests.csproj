@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IntelliTect.TestTools.Selenate" Version="1.2.0" />
+    <PackageReference Include="IntelliTect.TestTools.Selenate" Version="1.2.1" />
     <PackageReference Include="IntelliTect.TestTools.TestFramework" Version="1.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
