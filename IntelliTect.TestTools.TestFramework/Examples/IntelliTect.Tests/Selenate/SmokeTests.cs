@@ -4,7 +4,7 @@ using Xunit;
 
 namespace IntelliTect.Tests.Selenate
 {
-    public class UnitTest1
+    public class SmokeTests
     {
         [Fact]
         public void VerifyHomePageLoads()

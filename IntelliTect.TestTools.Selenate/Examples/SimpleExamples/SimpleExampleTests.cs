@@ -25,7 +25,7 @@ namespace SimpleExamples
             AddRemovePage = new AddRemoveElementsPage(Browser);
         }
 
-        // Using http://the-internet.herokuapp.com/add_remove_elements/
+        // Testing against http://the-internet.herokuapp.com/add_remove_elements/
         [Fact]
         public void StartWithNoElements()
         {
@@ -53,8 +53,6 @@ namespace SimpleExamples
             AddRemovePage.AddedElementsList.First().Click();
             Assert.False(Element.WaitForVisibleState(AddRemovePage.AddedElementsList.First()));
         }
-
-
 
         public void Dispose()
         {

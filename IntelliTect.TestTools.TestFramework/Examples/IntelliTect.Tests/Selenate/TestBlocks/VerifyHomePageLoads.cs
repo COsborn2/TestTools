@@ -5,24 +5,14 @@ using Xunit;
 
 namespace IntelliTect.Tests.Selenate.TestBlocks
 {
-    public class VerifyHomePageLoads : ITestBlock
+    public class VerifyHomePageLoads : BaseTestBlock
     {
-        public VerifyHomePageLoads(Browser browser)
-        {
-            Browser = browser;
-            HomePage = new HomePage(browser);
-            Element = new ElementHandler(browser.Driver);
-        }
+        public VerifyHomePageLoads(Browser browser) : base(browser) { }
 
         public void Execute()
         {
-            Browser.Driver.Navigate().GoToUrl(HomePage.Url);
             Assert.True(Element.WaitForEnabledState(HomePage.Logo, 15), 
                 "Logo never loaded");
         }
-
-        private Browser Browser { get; }
-        private HomePage HomePage { get; }
-        private ElementHandler Element { get; }
     }
 }
