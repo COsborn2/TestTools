@@ -1,12 +1,12 @@
 using IntelliTect.TestTools.Selenate;
-using SimpleExamples.Harness;
+using SimpleExamples.PageDefinitions;
 using System;
 using System.Linq;
 using Xunit;
 
 namespace SimpleExamples
 {
-    public class SimpleExampleTests : IDisposable
+    public class AddRemoveElementsTests : IDisposable
     {
 
         // Convert to tests for real websites.
@@ -18,7 +18,7 @@ namespace SimpleExamples
         // https://www.telerik.com/support/demos <-- Might be good for multi-language testing? Check out ConversationUI
         // https://restful-booker.herokuapp.com/ <-- for API tests
 
-        public SimpleExampleTests()
+        public AddRemoveElementsTests()
         {
             Browser = new Browser(BrowserType.Chrome);
             Element = new ElementHandler(Browser.Driver);
@@ -41,6 +41,16 @@ namespace SimpleExamples
             Element.WaitForEnabledState(AddRemovePage.AddElementButton);
             AddRemovePage.AddElementButton.Click();
             Assert.Equal(1, AddRemovePage.AddedElementsList.Count);
+        }
+
+        [Fact]
+        public void AddTwoElements()
+        {
+            Browser.Driver.Navigate().GoToUrl(AddRemovePage.Url);
+            Element.WaitForEnabledState(AddRemovePage.AddElementButton);
+            AddRemovePage.AddElementButton.Click();
+            AddRemovePage.AddElementButton.Click();
+            Assert.Equal(2, AddRemovePage.AddedElementsList.Count);
         }
 
         [Fact]

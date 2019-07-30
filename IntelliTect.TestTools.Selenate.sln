@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntelliTect.TestTools.Selen
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{3E758423-A0C8-42EB-8B76-407BDD21E29A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleExamples", "IntelliTect.TestTools.Selenate\Examples\SimpleExamples\SimpleExamples.csproj", "{4156761A-C5F1-4192-B07A-DF6530871849}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleExamples", "IntelliTect.TestTools.Selenate\Examples\SimpleExamples\SimpleExamples.csproj", "{4156761A-C5F1-4192-B07A-DF6530871849}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFrameworkExamples", "IntelliTect.TestTools.Selenate\Examples\TestFrameworkExamples\TestFrameworkExamples.csproj", "{4BE34A9D-168F-47D7-80EC-42C8BB1E9DF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,12 +37,17 @@ Global
 		{4156761A-C5F1-4192-B07A-DF6530871849}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4156761A-C5F1-4192-B07A-DF6530871849}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4156761A-C5F1-4192-B07A-DF6530871849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BE34A9D-168F-47D7-80EC-42C8BB1E9DF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE34A9D-168F-47D7-80EC-42C8BB1E9DF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE34A9D-168F-47D7-80EC-42C8BB1E9DF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE34A9D-168F-47D7-80EC-42C8BB1E9DF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4156761A-C5F1-4192-B07A-DF6530871849} = {3E758423-A0C8-42EB-8B76-407BDD21E29A}
+		{4BE34A9D-168F-47D7-80EC-42C8BB1E9DF5} = {3E758423-A0C8-42EB-8B76-407BDD21E29A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42443775-61D0-4A0F-AABC-39ED703404BD}

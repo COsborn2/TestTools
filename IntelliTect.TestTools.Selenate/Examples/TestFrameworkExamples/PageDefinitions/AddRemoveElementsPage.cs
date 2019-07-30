@@ -1,8 +1,10 @@
 ﻿using IntelliTect.TestTools.Selenate;
 using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace SimpleExamples.Harness
+namespace TestFrameworkExamples.PageDefinitions
 {
     public class AddRemoveElementsPage
     {
